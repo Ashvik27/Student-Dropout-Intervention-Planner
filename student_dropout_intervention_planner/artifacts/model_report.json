@@ -1,0 +1,76 @@
+{
+  "dataset_rows": 1800,
+  "positive_rate": 0.8027777777777778,
+  "train_rows": 1350,
+  "test_rows": 450,
+  "features_used": [
+    "attendance_rate",
+    "average_grade",
+    "backlog_count",
+    "lms_logins_per_week",
+    "assignment_completion_rate",
+    "fee_delay_days"
+  ],
+  "excluded_audit_fields": [
+    "first_generation_group",
+    "program_track",
+    "student_id"
+  ],
+  "model_metrics": {
+    "Logistic Regression baseline": {
+      "precision": 0.9204545454545454,
+      "recall": 0.6731301939058172,
+      "f1": 0.7776,
+      "pr_auc": 0.924071344276566,
+      "roc_auc": 0.7864234803448599,
+      "accuracy": 0.6911111111111111,
+      "confusion_matrix_tn_fp_fn_tp": [
+        68,
+        21,
+        118,
+        243
+      ]
+    },
+    "ANN (MLP)": {
+      "precision": 0.8117913832199547,
+      "recall": 0.9916897506925207,
+      "f1": 0.8927680798004988,
+      "pr_auc": 0.8477303044460294,
+      "roc_auc": 0.6212456036602445,
+      "accuracy": 0.8088888888888889,
+      "confusion_matrix_tn_fp_fn_tp": [
+        6,
+        83,
+        3,
+        358
+      ]
+    }
+  },
+  "selected_model": "Logistic Regression baseline",
+  "fairness_audit": [
+    {
+      "group": "Continuing-generation",
+      "n": 290,
+      "positive_label_rate": 0.7965517241379311,
+      "predicted_high_risk_rate": 0.6,
+      "recall": 0.7012987012987013,
+      "precision": 0.9310344827586207,
+      "actual_positive_count": 231
+    },
+    {
+      "group": "First-generation",
+      "n": 160,
+      "positive_label_rate": 0.8125,
+      "predicted_high_risk_rate": 0.5625,
+      "recall": 0.6230769230769231,
+      "precision": 0.9,
+      "actual_positive_count": 130
+    }
+  ],
+  "notes": [
+    "All supplied data are synthetic and for software demonstration only.",
+    "Group fields are excluded from model inputs and used only for auditing.",
+    "Metrics and subgroup results are illustrative; do not use for real student decisions.",
+    "Threshold 0.5 is a demo default and should be chosen with stakeholders."
+  ]
+}
